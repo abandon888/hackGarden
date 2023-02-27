@@ -1,0 +1,90 @@
+.secondSection {
+  padding-top: 56px;
+  position: relative;
+
+  ul {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #e36c3f;
+
+    &.isFixed {
+      position: fixed;
+    }
+
+    li {
+      position: relative;
+      color: white;
+      list-style: none;
+
+      .line {
+        position: absolute;
+        left: 50%;
+        bottom: -8px;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 4px;
+        background: green;
+        opacity: 0;
+        transition: opacity 0.3s;
+
+        &.visible {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // tab content
+  section {
+    scroll-margin: 56px;
+    padding: 16px;
+
+    h2 {
+      color: white;
+    }
+
+    img {
+      width: 100%;
+      margin-top: 16px;
+      border-radius: 6px;
+    }
+  }
+
+  // App 内打开
+  .btnWrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transform: translateY(64px);
+    transition: opacity 0.3s, transform 0.3s;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    button {
+      border: none;
+      padding: 8px 16px;
+      border-radius: 50px;
+      color: white;
+      background: #fb7299;
+    }
+  }
+}
