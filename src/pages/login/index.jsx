@@ -1,18 +1,18 @@
 import { Card, Form, Input, Button, Checkbox, message } from 'antd'
-import logo from '@/assets/logo.png'
+import logo from '../../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
 import './index.scss'
-import { useStore } from '@/store'
+import { useStore } from '../../store'
 
-function Login () {
+function Login() {
   const { loginStore } = useStore()
   const navigate = useNavigate()
-  async function onFinish (values) {
+  async function onFinish(values) {
     console.log(values)
     //values:放置的是所以表单项中用户输入的内容
     await loginStore.getToken({
       mobile: values.username,
-      code: values.password
+      code: values.password,
     })
     //跳转首页
     navigate('/', { replace: true })
@@ -24,13 +24,13 @@ function Login () {
       <Card className="login-container">
         <img className="login-logo" src={logo} alt="" />
         {/* 登录表单 */}
-        <Form validateTrigger={['onBlur', 'onChange']}
+        <Form
+          validateTrigger={['onBlur', 'onChange']}
           initialValues={{
             remember: true,
-            password: '246810'
+            password: '246810',
           }}
-          onFinish={onFinish}
-        >
+          onFinish={onFinish}>
           <Form.Item
             name="username"
             rules={[
@@ -38,20 +38,20 @@ function Login () {
               {
                 pattern: /^1[3-9]\d{9}$/,
                 message: '手机号码格式不对',
-                validateTrigger: 'onBlur'
-              }
-            ]}
-          >
+                validateTrigger: 'onBlur',
+              },
+            ]}>
             <Input size="large" placeholder="请输入手机号" />
           </Form.Item>
           <Form.Item
             name="password"
-            rules={[{ required: true, message: '请输入你的密码!' },
-            {
-              len: 6,
-              message: '请输入6位密码',
-              validateTrigger: 'onBlur'
-            }
+            rules={[
+              { required: true, message: '请输入你的密码!' },
+              {
+                len: 6,
+                message: '请输入6位密码',
+                validateTrigger: 'onBlur',
+              },
             ]}>
             <Input size="large" placeholder="请输入密码" />
           </Form.Item>

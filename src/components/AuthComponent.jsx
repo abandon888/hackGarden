@@ -1,10 +1,10 @@
-import { getToken } from "@/utils"
+import { getToken } from "../utils"
 import { Navigate } from "react-router-dom"
 
 function AuthComponent ({ children }) {
   const isToken = getToken()
   if (isToken) {
-    return <>{children}</>
+    return <div>{children}</div>
   } else {
     return <Navigate to="/login" replace></Navigate>
   }
