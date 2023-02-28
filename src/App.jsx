@@ -24,7 +24,7 @@ function App() {
             <Route path="article" element={<Article />}></Route>
             <Route path="publish" element={<Publish />}></Route>
           </Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="login" element={<Login />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
