@@ -19,6 +19,10 @@ function Login() {
     message.success('登录成功')
     //错误处理参见文档
   }
+  function onvisitor() {
+    navigate('/', { replace: true })
+    message.success('游客登录成功')
+  }
   return (
     <div className="login">
       <Card className="login-container">
@@ -63,6 +67,11 @@ function Login() {
           <Form.Item>
             <Button type="primary" htmlType="submit" size="large" block>
               登录
+            </Button>
+            {/* //让两个按钮空出一点距离 */}
+            <div className="login-space"></div>
+            <Button type="primary" onClick={onvisitor} size="large" block>
+              游客登录
             </Button>
           </Form.Item>
         </Form>

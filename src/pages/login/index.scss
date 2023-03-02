@@ -17,7 +17,7 @@
 
   .login-container {
     width: 440px;
-    height: 360px;
+    // height: 360px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -27,5 +27,8 @@
 
   .login-checkbox-label {
     color: #1890ff;
+  }
+  .login-space {
+    height: 20px;
   }
 }

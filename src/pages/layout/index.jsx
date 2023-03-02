@@ -8,25 +8,25 @@ import {
 import './index.scss'
 import { observer } from 'mobx-react-lite'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
-// import { useStore } from '@/store'
-// import { useEffect } from 'react'
+import { useStore } from '../../store'
+import { useEffect } from 'react'
 // import LoginStore from '@/store/login.Store'
 
 const { Header, Sider } = Layout
 
 const GeekLayout = () => {
   const { pathname } = useLocation()
-  // const { LoginStore } = useStore()
-  // const { userStore } = useStore()
-  // useEffect(() => {
-  //   try {
-  //     useStore.getUserInfo()
-  //   } catch { }
-  // }, [userStore])
-  //排个bug排了这么久，离谱
+  const { LoginStore } = useStore()
+  const { userStore } = useStore()
+  useEffect(() => {
+    try {
+      useStore.getUserInfo()
+    } catch { }
+  }, [userStore])
+  // 排个bug排了这么久，离谱
   const navigate = useNavigate()
   const onConfirm = () => {
-    // LoginStore.loginOut()
+    LoginStore.loginOut()
     navigate('/login')
   }
   return (
