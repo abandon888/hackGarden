@@ -6,6 +6,7 @@ import './App.css'
 import { AuthComponent } from './components/AuthComponent'
 import Publish from './pages/Publish'
 import Article from './pages/Article'
+import { history } from './utils/history'
 //@是路径的简写
 
 function App() {

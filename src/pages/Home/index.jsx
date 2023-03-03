@@ -1,10 +1,11 @@
 import './index.scss'
-//引入echarts
-import * as echarts from 'echarts'
+import Bar from '../../components/Bar'
+
 const Home = () => {
+ 
   return (
     <div>
-      <h1>Home</h1>
+      <Bar/>
     </div>
   )
 }
