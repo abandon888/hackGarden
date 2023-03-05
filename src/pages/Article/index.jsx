@@ -127,10 +127,15 @@ const Article = () => {
             <Form.Item label="频道" name="channel_id">
               <Select
                 placeholder="请选择文章频道"
-                defaultValue="lucy"
                 style={{ width: 120 }}>
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
+                  {/* 遍历频道列表 */}
+                {channelList.map((item) => {
+                  return (
+                    <Option key={item.id} value={item.id}>
+                      {item.name}
+                    </Option>
+                  )
+                })}
               </Select>
             </Form.Item>
 
