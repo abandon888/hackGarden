@@ -33,7 +33,7 @@ const Article = () => {
     loadChannelList()
   }, [])
   //文章列表管理 统一管理数据 将来修改给setList传对象
-  const [list, setList] = useState({
+  const [articleData,setArticleData] = useState({
     list: [], //文章列表
     count: 0, //文章数量
   })
@@ -50,6 +50,10 @@ const Article = () => {
     const loadList = async () => {
       const res = http.get('/mp/article', { params })
       console.log(res)
+      setArticleData({
+        list: res.data.data,
+        count: res.data.count,
+      })
     }
     loadList()
   }, [params])
@@ -93,7 +97,7 @@ const Article = () => {
     },
     {
       title: '操作',
-      render: (result) => {
+      render: (data) => {
         return (
           <Space size="middle">
             <Button type="primary" shape="circle" icon={<EditOutlined />} />
@@ -169,6 +173,10 @@ const Article = () => {
             </Button>
           </Form.Item>
         </Form>
+      </Card>
+      {/* 文章列表 */}
+      <Card title={`根据筛选条件共查询到 ${articleData.count} 条结果`}>
+        <Table columns={columns} dataSource={articleData.list} rowKey="id" />
       </Card>
     </div>
   )
