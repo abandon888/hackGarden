@@ -26,7 +26,7 @@ const GeekLayout = () => {
   // 排个bug排了这么久，离谱
   const navigate = useNavigate()
   const onConfirm = () => {
-    LoginStore.loginOut()
+    // LoginStore.loginOut()
     navigate('/login')
   }
   return (
